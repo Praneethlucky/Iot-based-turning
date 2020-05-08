@@ -1,14 +1,14 @@
+x=0
 def right():
     import RPi.GPIO as GPIO
     import time
      
     #GPIO Mode (BOARD / BCM)
     GPIO.setmode(GPIO.BCM)
-    GPIO.setwarnings(False) 
-    #set GPIO Pins
-    GPIO_TRIGGER = 19
-    GPIO_ECHO = 26
      
+    #set GPIO Pins
+    GPIO_TRIGGER =10
+    GPIO_ECHO = 9
     #set GPIO direction (IN / OUT)
     GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
     GPIO.setup(GPIO_ECHO, GPIO.IN)
@@ -39,16 +39,13 @@ def right():
         distance = (TimeElapsed * 34300) / 2
      
         return distance
-     
-    #if __name__ == '__main__':
-    def main(): 
-        while True:
-                dist = distance()
-                #print ("Measured Distance = %.1f cm" % dist)
-                time.sleep(1)
-                if dist<30:
-                    return 1
-                else:
-                    return 0
-    main()
-right()
+    def main2():
+        while(True):
+            dist = distance()
+            #print(dist)
+            time.sleep(1)
+            if dist<40:
+                y=1
+                break
+    main2()
+    return 1

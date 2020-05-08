@@ -1,3 +1,4 @@
+x=1
 def left():
     import RPi.GPIO as GPIO
     import time
@@ -39,14 +40,14 @@ def left():
         distance = (TimeElapsed * 34300) / 2
      
         return distance
-    def main():
-        while True:
+    y=0
+    def main1():
+        while(True):
             dist = distance()
-            #print (type( dist))
-            time.sleep(0.5)
-            if dist<30:
-                return 1
-            else:
-                main()
-    main()
-left()
+            #print (dist)
+            time.sleep(1)
+            if dist<40:
+                y=1
+                break
+    main1()
+    return 1
